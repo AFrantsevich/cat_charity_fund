@@ -1,6 +1,7 @@
-from pydantic import BaseModel, Extra, Field, PositiveInt, root_validator
 from datetime import datetime
 from typing import Optional
+
+from pydantic import BaseModel, Extra, Field, PositiveInt
 
 
 class CharityProjectBase(BaseModel):
@@ -35,13 +36,6 @@ class CharityProjectUpdate(BaseModel):
     class Config:
         orm_mode = True
         extra = Extra.forbid
-
-    @root_validator()
-    def name_cannot_be_null(cls, values):
-        for field in values.values():
-            if field is not None and not field:
-                raise ValueError(f'Поле {field} проекта не может быть пустым!')
-        return values
 
 
 class CharityProjectDB(BaseModel):

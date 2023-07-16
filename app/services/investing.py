@@ -1,13 +1,12 @@
 from datetime import datetime
-from sqlalchemy import asc
-from sqlalchemy import select
+
+from sqlalchemy import asc, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-
-from app.schemas.donation import DonationCreate
 from app.models.charity_project import CharityProject
 from app.models.donation import Donation
 from app.schemas.charity_project import CharityProjectCreate
+from app.schemas.donation import DonationCreate
 
 
 async def check_projects_for_charity(
