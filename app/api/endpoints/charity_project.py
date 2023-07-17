@@ -77,18 +77,3 @@ async def get_all_charity_projects(
         session: AsyncSession = Depends(get_async_session),
 ):
     return await charity_project_crud.get_multi(session)
-
-
-# @router.get(
-#     '/test/{project_id}',
-#     response_model_exclude_none=True,
-#
-# )
-# async def get_all_charity_projects(
-#         project_id: int,
-#         session: AsyncSession = Depends(get_async_session),
-#
-# ):
-#     a = await charity_project_crud.get(project_id, session)
-#     return repr(a)
-
